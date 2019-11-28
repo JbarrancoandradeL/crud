@@ -1,2 +1,2 @@
 import { Schema } from 'mongoose';
-export declare const ClientSchema: Schema<any>;
+export declare const ClientsSchema: Schema<any>;

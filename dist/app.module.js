@@ -9,8 +9,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
-const clients_controller_1 = require("./clients/clients.controller");
-const clients_service_1 = require("./clients/clients.service");
 const clients_module_1 = require("./clients/clients.module");
 const mongoose_1 = require("@nestjs/mongoose");
 let AppModule = class AppModule {
@@ -20,8 +18,8 @@ AppModule = __decorate([
         imports: [clients_module_1.ClientsModule, mongoose_1.MongooseModule.forRoot('mongodb://localhost/Nest-Crud', {
                 useNewUrlParser: true
             })],
-        controllers: [app_controller_1.AppController, clients_controller_1.ClientsController],
-        providers: [app_service_1.AppService, clients_service_1.ClientsService],
+        controllers: [app_controller_1.AppController],
+        providers: [app_service_1.AppService],
     })
 ], AppModule);
 exports.AppModule = AppModule;

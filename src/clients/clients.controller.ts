@@ -14,25 +14,21 @@ export class ClientsController {
 
     @Get(':id')
     getClientsId(@Param('id') id): {} {
-        return this.ClientServi.getClient(parseInt(id));
+        return this.ClientServi.getClient(id);
     }
 
     @Post()
     createClient( @Body() client: CreateClientDto) {
-        console.log(client);
-        return 'Success';
+        return this.ClientServi.create(client);
     }
 
-    @Put(':id') 
-    updateClient(@Body() client:CreateClientDto, @Param('id') id): string {
-        console.log(client);
-        console.log(id);
+    @Put(':id')
+    updateClient(@Body() client: CreateClientDto , @Param('id') id): string {
         return 'cliente actualizado';
     }
 
     @Delete(':id')
-    deleteClient(@Param('id') id ): string {
-        console.log(id);
-        return `cliente borrado  fue : ${id}`;
+    deleteClient(@Param('id') id ) {
+        return this.ClientServi.delete(id);
     }
 }

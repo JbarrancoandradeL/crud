@@ -23,20 +23,16 @@ let ClientsController = class ClientsController {
         return this.ClientServi.getClients();
     }
     getClientsId(id) {
-        return this.ClientServi.getClient(parseInt(id));
+        return this.ClientServi.getClient(id);
     }
     createClient(client) {
-        console.log(client);
-        return 'Success';
+        return this.ClientServi.create(client);
     }
     updateClient(client, id) {
-        console.log(client);
-        console.log(id);
         return 'cliente actualizado';
     }
     deleteClient(id) {
-        console.log(id);
-        return `cliente borrado  fue : ${id}`;
+        return this.ClientServi.delete(id);
     }
 };
 __decorate([
@@ -71,7 +67,7 @@ __decorate([
     __param(0, common_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", String)
+    __metadata("design:returntype", void 0)
 ], ClientsController.prototype, "deleteClient", null);
 ClientsController = __decorate([
     common_1.Controller('clients'),

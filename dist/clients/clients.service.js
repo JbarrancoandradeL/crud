@@ -16,23 +16,26 @@ const mongoose_1 = require("mongoose");
 const common_1 = require("@nestjs/common");
 const mongoose_2 = require("@nestjs/mongoose");
 let ClientsService = class ClientsService {
-    constructor(clientsModel) {
-        this.clientsModel = clientsModel;
+    constructor(clientModel) {
+        this.clientModel = clientModel;
     }
     async create(CreateClientDt) {
-        const createdClient = new this.clientsModel(CreateClientDt);
+        const createdClient = new this.clientModel(CreateClientDt);
         return await createdClient.save();
     }
     async getClients() {
-        return await this.clientsModel.find().exec();
+        return await this.clientModel.find().exec();
     }
     async getClient(id) {
-        return await this.clientsModel.findById(id);
+        return await this.clientModel.findById(id);
+    }
+    async delete(id) {
+        return await this.clientModel.deleteOne({ _id: id });
     }
 };
 ClientsService = __decorate([
     common_1.Injectable(),
-    __param(0, mongoose_2.InjectModel('client')),
+    __param(0, mongoose_2.InjectModel('Client')),
     __metadata("design:paramtypes", [mongoose_1.Model])
 ], ClientsService);
 exports.ClientsService = ClientsService;

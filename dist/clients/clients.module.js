@@ -15,9 +15,9 @@ let ClientsModule = class ClientsModule {
 };
 ClientsModule = __decorate([
     common_1.Module({
-        imports: [mongoose_1.MongooseModule.forFeature([{ name: 'Client', schema: clients_schema_1.ClientSchema }])],
+        imports: [mongoose_1.MongooseModule.forFeature([{ name: 'Client', schema: clients_schema_1.ClientsSchema }])],
         controllers: [clients_controller_1.ClientsController],
-        providers: [clients_service_1.ClientsService]
+        providers: [clients_service_1.ClientsService],
     })
 ], ClientsModule);
 exports.ClientsModule = ClientsModule;
